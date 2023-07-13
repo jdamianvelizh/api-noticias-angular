@@ -1,0 +1,2 @@
+https://newsapi.org/account
+link de la pagina del api
