@@ -32,14 +32,13 @@ export class FormularioComponent {
 
 
    buscarNoticia() {
-    // const PARAMENTROS = {
-    //   categoria: this.categoriaSeleccionada,
-    //   pais: this.paisSeleccionado
-    // }
+    const PARAMENTROS = {
+      categoria: this.categoriaSeleccionada,
+      pais: this.paisSeleccionado
+    }
 
-    // this.parametrosSeleccionados.emit(PARAMENTROS)
-    console.log(this.categoriaSeleccionada);
-    console.log(this.paisSeleccionado);
+    this.parametrosSeleccionados.emit(PARAMENTROS)
+
 
   }
 
