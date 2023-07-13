@@ -9,15 +9,23 @@ import { NoticiaService } from './services/noticia.service';
 export class AppComponent {
   title = 'Api-Noticias-Angular';
   listNoticias: any[] = [];
+  loading = false;
 
   constructor(private noticiaService: NoticiaService) {}
 
   buscarNoticias(parametros: any) {
-    this.noticiaService.getNoticias(parametros).subscribe((data) => {
-      console.log(data);
-      this.listNoticias = data.articles
-    }, err => {
-      console.log(err);
-    });
+    this.loading = true;
+    this.listNoticias = [];
+    setTimeout(() => {
+    this.noticiaService.getNoticias(parametros).subscribe(
+      (data) => {
+        this.loading = false;
+        this.listNoticias = data.articles;
+      },
+      (err) => {
+        console.log(err);
+        this.loading = false;
+      });
+    }, 2000);
   }
 }
